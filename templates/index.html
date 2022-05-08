@@ -1,0 +1,64 @@
+{% include 'header.html' %}
+
+        <header class="masthead" style="background-image: url('../static/images/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Khatami's Blog</h1>
+                            <span class="subheading">My thoughts online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for dat in data: %}
+                    <div class="post-preview">
+                        
+                        <a href="{{ url_for('post' , dat=dat['id']   ) }}">
+                            <h2 class="post-title"> {{dat['title']}}    </h2>
+                            <h3 class="post-subtitle"> {{dat['body'][0:40]}} </h3>
+                        </a>
+                        
+                        <!-- <p>"{{dat}}"</p> -->
+                        <p class="post-meta">
+                            Posted by
+                            <!-- create a jinja url for -->
+                            
+                            <a href="{{url_for('about')}}">Khatami_ONK</a>
+                            on September 24, 2022
+                        </p>
+                       
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    {% endfor %}
+                    <!-- Post preview-->
+
+                    <div class="post-preview">
+                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on September 18, 2022
+                        </p>
+                    </div>
+                    
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                  
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% include "footer.html" %}
